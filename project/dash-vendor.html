@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor's Profile</title>
+    <link rel="shortcut icon" type="image" href="./pictures1/vendor.png">
+      
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      function doLogout(){
+        localStorage.removeItem("user");
+        location.href="index.html";
+      }
+      function chkUser()
+      {
+        if(!localStorage.getItem("user"))
+        location.href="index.html";
+      }
+
+      
+   
+    function Validate() {
+      var password = document.getElementById("oldpwd");
+      var newpwd = document.getElementById("newpwd");
+      if (newpwd.value != oldpwd.value) {
+       alert("do not match");
+      } else {
+        alert('Passwords match');
+      }
+    }
+    </script>
+     
+     <script>
+
+      $(document).ready(function(){
+                $("#email").val(localStorage.getItem("user"));
+                //$("#email").blur(function(){
+                      var email=$("#email").val();
+                })
+              
+                      </script>
+
+                     
+</head>
+<body class="dashvendor" onload="chkUser();"> 
+
+
+    <nav class="navbar navbar-light bg-light navbar-expand-sm py-0 fixed-top">
+        <div class="container-fluid">
+          <span class="navbar-brand"><nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+           
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"> <a class="navbar-brand" href="#">
+                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <i>&nbsp; ashimajindal169@gmail.com &nbsp; |</i>
+               </a></li>
+               <li class="breadcrumb-item active" aria-current="page"> <a class="navbar-brand" href="#">
+                 <i class="fa fa-phone" aria-hidden="true"></i>
+               <i>&nbsp; 8360689975</i>
+              </a></li>
+            </ol>
+          </nav></span>
+          <ul class="nav">
+            <li class="nav-item" data-bs-toggle="modal" data-bs-target="#modalSignup"><a class="nav-link active" aria-current="page" href="#" >SignUp</a>
+              
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                
+                <li class="nav-item" data-bs-toggle="modal" data-bs-target="#modalLogin"><a class="nav-link active" aria-current="page" href="#">Log In</a>
+            </li>
+          
+            
+        </div>
+      
+        
+       </div>
+      </nav>
+      <div class="card bg-dark text-black mt-5">
+        <img  class="card-img" alt="..." >
+        <div class="card-img-overlay">
+          <h5 class="card-title"><nav class="navbar navbar-expand-lg py-md-3 navbar-dark  ">
+            
+            <div class="container-fluid" >
+                <a class="navbar-brand" href="#" style="font-weight: 100px; font-size: xx-large;">
+                    <img src="pictures1/calender.jfif"  width="50" height="50" class="d-inline-block align-text-top">
+                   <b><i>&nbsp; Event Planner</i></b>  <hr>
+                  </a>
+                 
+            
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <center>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 gap-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="aboutus.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="info.html">FAQ's</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="info.html">Contact Us</a>
+                   
+                  </li>
+                  <br>
+                <hr>
+                
+                </ul>
+               
+              </div>
+              
+              <hr>
+            </center>
+            </div>
+           
+            
+           
+          </nav></h5>
+          <br><br><br>
+              <center> <p class="card-text-light"><H1> <i> <u> EVENT & FUNCTION ORGANIZER</H1></p></center></i></u>
+               
+       
+          <p class="card-text"></p>
+        </div>
+      </div>
+         
+            <br>
+            <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-5 offset-md-1">
+                <div class="col">
+                  <div class="card ">
+                    <img src="pictures1/vendor.png" class="card-img-top-2 rounded-circle" alt="..." >
+                    <div class="card-body">
+                        <center>
+                      <h5 class="card-title"> <a href="profile-vendor.html" class="btn btn-primary">Profile</a></h5>
+                    </center>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col">
+                  <div class="card">
+                    <img src="pictures1/settings.png" class="card-img-top rounded-circle" alt="...">
+                    <div class="card-body">
+                        <center>
+                            <div class="nav-item" data-bs-toggle="modal" data-bs-target="#modalsettings"><a class="btn btn-primary" aria-current="page" href="#">Settings</a>
+                            </center>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="pictures1/logout.png" class="card-img-top rounded-circle " alt="...">
+                    <div class="card-body">
+                      <center>
+                      <button class="btn btn-primary" onclick=doLogout();>Log Out</button></div></center>
+                  </div>
+                </div>
+              </div>
+            </div>
+     <!-- Modal -->
+   <div class="modal fade" id="modalsettings" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+                <input type="email" name="email" readonly class="form-control" id="email" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="oldpwd" name="oldpwd" placeholder="Password">
+                <label for="floatingPassword"> Old Password</label><br>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="newpwd" name="newpwd" placeholder="Password">
+                <label for="floatingPassword"> New Password</label><br>
+              </div>
+              
+              
+        <div class="modal-footer">
+         
+          <input type="Submit" value="Update" onclick="Validate()" id="updatevendorpass" class="btn btn-primary rounded-pill" formaction="/changepwd">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

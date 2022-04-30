@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to clients profile</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image" href="./pictures1/vendor-client.jfif">
+    
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+   
+    <script>
+
+         /* $(document).ready(function()
+            {
+
+              $("#email").val(localStorage.getItem("user"));
+                /*$("#email").blur(function(){
+                    var uid=$("#email").val();
+                    
+                    var url="/chk-user-in-table?thisuser="+email;
+                    $.get(url,function(kuchBhiJsonAry){
+                        //alert(JSON.stringify(kuchBhiResp));
+                        if(kuchBhiJsonAry.length==0)
+                            $("#result").html("Available");
+                            else
+                            $("#result").html("Not Available");
+                              
+                    })
+
+                });*/
+                //-----------------------------------------
+                /*$("#btnSearch").click(function(){
+                    var email=$("#email").val();
+                    
+                    var url="/chk-user-in-table-profile?thisuser="+email;
+                    $.get(url,function(kuchBhiJsonAry){
+                        //alert(JSON.stringify(kuchBhiResp));
+                        if(kuchBhiJsonAry.length==0){
+                            $("#result").html("Fill the details");
+                            $("#btnupdate").prop("disabled",true);
+                    }
+                            else
+                            {
+                              $("#btnsubmit").attr("disabled",true);
+                               // alert(JSON.stringify(kuchBhiJsonAry));
+                               $("#uname").val(kuchBhiJsonAry[0].uname);
+                               $("#address").val(kuchBhiJsonAry[0].address);
+                               $("#preview").attr("src","/pictures1/"+ kuchBhiJsonAry[0].picpath);
+                                $("#city").val(kuchBhiJsonAry[0].city);
+                                $("#contact").val(kuchBhiJsonAry[0].contact);
+                                $("#jasoos").val(kuchBhiJsonAry[0].picpath);
+                            }
+                              
+                    })
+
+                });
+            }
+        );*/
+        
+       
+
+
+        function loadFile(ref){
+          var image=document.getElementById("preview");
+          image.src=URL.createObjectURL(ref.files[0]);
+        }
+        $(document).ready(function(){
+          $("#email").val(localStorage.getItem("user"));
+          var email=$("#email").val();
+                    
+                    var url="/chk-user-in-table-profile?thisuser="+email;
+                    $.get(url,function(kuchBhiJsonAry){
+                       // alert(JSON.stringify(kuchBhiResp));
+                        if(kuchBhiJsonAry.length==0){
+                            $("#result").html("Fill the details");
+                            $("#btnupdate").prop("disabled",true);
+                    }
+                        else
+                            {
+                             // alert(JSON.stringify(kuchBhiJsonAry));
+                              $("#btnsubmit").attr("disabled",true);
+
+                               $("#uname").val(kuchBhiJsonAry[0].uname);
+                               $("#address").val(kuchBhiJsonAry[0].address);
+                               $("#preview").attr("src","/pictures1/"+ kuchBhiJsonAry[0].picpath);
+                                $("#city").val(kuchBhiJsonAry[0].city);
+                                $("#contact").val(kuchBhiJsonAry[0].contact);
+                                $("#jasoos").val(kuchBhiJsonAry[0].picpath);
+                            }
+                              
+                    })
+
+        });
+        
+
+      </script>
+      <style>
+         #picpath
+          {
+            display: none;
+          }
+        .card-img
+{
+  
+  background-image: url(pictures1/vendorbg.jpg);
+  width: inherit;
+  height: 110px;
+  background-size: contain;
+  
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+label{
+  font-weight: bold;
+}
+.full
+{
+  height: inherit;
+  width: 100%;
+  border: 2px solid gainsboro;
+  border-spacing: 5vmax;
+  padding: 5px 15px;
+  
+}
+      </style>
+</head>
+<body onload="doloadData();" class="profile">
+    
+    <center>
+      <div class="card bg-light text-black">
+        <img class="card-img" >
+        <div class="card-img-overlay">
+        <h1 style="color: rgb(192, 30, 30); font-family: sans-serif;">Client</h1>
+        
+      </div>
+          </div></center>
+        <br>
+       
+        <form  name="frm" method="post" enctype="multipart/form-data">
+          <input type="hidden" id="jasoos" name="jasoos">
+          <div class="container">
+            <div class="full">
+            
+              <div class="row">
+                <h2 style="color: green;">Personal Information</h2>
+               
+
+              <div class="row mt-5 mb-5">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-8">
+                          <div class=" input-group ">
+                            <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; Email Address</label>&nbsp;
+                           <input type="text" readonly class="form-control" id="email"  name="email" placeholder="johndoe77@gmail.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <span class="input-group-text">@gmail.com</span>
+                           </div>
+                        </div>
+                       
+                          <span id="result"></span>
+                        </div>
+                        <div class="col-8  mt-5 mb-5">
+                          <label for="name"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Name</label>
+                           <input type="text" class="form-control" id="uname" name="uname" placeholder="Name" aria-label="First name">
+                        </div>
+                        <div class="col mb-1 mt-3">
+                          <label for="address"> <i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp; Address</label>
+                          <textarea class="form-control" placeholder="1234 Main St" name="address" style="resize: none;"  id="address"></textarea>
+                        </div>
+        
+                    </div>
+                
+                <div class="col-4">
+                    <div class="row  ">
+                        <div class="col-5">
+                         
+                          <label for="picpath" class="align-self-start" style="margin-left:24px;"><i class="fa fa-camera"></i>&nbsp;Upload Image</label>
+                           <input type="file" name="picpath" id="picpath" class="rounded float-end" onchange="loadFile(this);">
+                <br><br>
+                           <img src="pictures1/profile.png" class="rounded float-end" width="80" height="80" id="preview">
+                           
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            
+            
+
+
+                <div class="row">
+                <div class="col-4">
+                  <label for="text"> <i class="fa fa-home" aria-hidden="true"></i>&nbsp;City</label>
+                   <input type="text" name="city"  class="form-control" id="city">
+                </div>
+                <div class="col-5 mt-4">
+                  <div class="input-group flex-nowrap">
+                  <label for="contact"> <i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; Contact &nbsp;</label>
+                  <span class="input-group-text" id="addon-wrapping">+91</span>
+                  <input type="text" class="form-control" name="contact" id="contact" placeholder="XXXXXXXXXX" aria-label="number">
+                </div>
+                </div>
+                <div class="row g-3">
+                    
+                    </div>
+                    <br><br><br>
+                    <div class="container  offset-md-5">
+                        <input type="Submit" value="Submit" id="btnsubmit" class="btn btn-outline-success btn-lg" formaction="/profile-save">
+     <input type="Submit" value="Update" id="btnupdate" class="btn btn-outline-danger btn-lg" formaction="/profile-update">
+                </div>
+            </div>
+            
+          
+             
+        </form>
+    
+   
+    
+</body>
+</html>
+
+

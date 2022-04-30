@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to vendors profile</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="shortcut icon" type="image" href="./pictures1/vendor-client.jfif">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+     
+    <script>
+      
+      function loadFile(ref){
+          var image=document.getElementById("preview");
+          image.src=URL.createObjectURL(ref.files[0]);
+        }
+
+    $(document).ready(function(){
+              $("#email").val(localStorage.getItem("user"));
+              //$("#email").blur(function(){
+                    var email=$("#email").val();
+                    
+                    var url="/chk-user-in-table?thisuser="+email;
+                    $.get(url,function(kuchBhiJsonAry){
+                        //alert(JSON.stringify(kuchBhiResp));
+                        if(kuchBhiJsonAry.length==0){
+                            $("#result").html("Fill the Details");
+                            $("#btnupdate").prop("disabled",true);
+                    }
+                            else
+                            {
+                              // alert(JSON.stringify(kuchBhiJsonAry));
+                                $("#btnsubmit").attr("disabled",true);
+
+                                $("#name").val(kuchBhiJsonAry[0].name);
+                                $("#contact").val(kuchBhiJsonAry[0].contact);
+                                $("#firm").val(kuchBhiJsonAry[0].firm);
+                                $("#estd").val(kuchBhiJsonAry[0].estd);
+                                $("#address").val(kuchBhiJsonAry[0].address);
+                                $("#city").val(kuchBhiJsonAry[0].city);
+                                $("#acard").val(kuchBhiJsonAry[0].acard);
+                                $("#preview").attr("src","/pictures1/"+kuchBhiJsonAry[0].proofpath);
+                                $("#selservices").val(kuchBhiJsonAry[0].selservices);
+                                $("#otherinfo").val(kuchBhiJsonAry[0].otherinfo);
+                                $("#jasoos").val(kuchBhiJsonAry[0].proofpath);
+                            }     
+                    })
+
+                
+                //-----------------------------------------
+               /* $("#btnSearch").click(function(){
+                    var email=$("#email").val();
+                    
+                    var url="/chk-user-in-table?thisuser="+email;
+                    $.get(url,function(kuchBhiJsonAry){
+                        //alert(JSON.stringify(kuchBhiResp));
+                        if(kuchBhiJsonAry.length==0)
+                            $("#result").html("Invalid ID");
+                            else
+                            {
+                               // alert(JSON.stringify(kuchBhiJsonAry));
+                                $("#name").val(kuchBhiJsonAry[0].name);
+                                $("#contact").val(kuchBhiJsonAry[0].contact);
+                                $("#firm").val(kuchBhiJsonAry[0].firm);
+                                $("#estd").val(kuchBhiJsonAry[0].estd);
+                                $("#address").val(kuchBhiJsonAry[0].address);
+                                $("#city").val(kuchBhiJsonAry[0].city);
+                                $("#acard").val(kuchBhiJsonAry[0].acard);
+                                $("#preview").attr("src","/pictures1/"+kuchBhiJsonAry[0].proofpath);
+                                $("#selservices").val(kuchBhiJsonAry[0].selservices);
+                                $("#otherinfo").val(kuchBhiJsonAry[0].otherinfo);
+                                $("#jasoos").val(kuchBhiJsonAry[0].proofpath);
+
+                              }
+                              
+                    })
+
+                });*/
+
+//--------------------multiple values in combo box-----------------------
+              $('#items').change(function(){
+                var selserv=$("#selservices").val();
+              var items=$("#items").val();
+            
+              selserv = selserv+ "," +items;
+               
+              if(selserv.indexOf(",") == 0)
+              {
+              selserv = selserv.substr(1,selserv.length);
+              
+              }
+             // console.log(selserv);
+              $("#selservices").val(selserv);
+              
+            })
+          })
+              //  alert("check");
+               // var selserv=document.getElementById("selservices");
+                //var final=selserv.val()+","+items.val();
+               // selserv.val(final);
+             
+//--------------only for one selected value------------------------
+      /* function doSelect(){
+            var a = document.getElementById("items");
+            var ser = a.options[a.selectedIndex].text;
+            document.getElementById("selservices").value=ser;
+        }*/
+
+
+        //--------------multiple values in list box----------------------
+       /* $(document).ready(function(){
+            $('#items').change(function(){
+                var text="";
+                $('option:selected').each(function(){
+                    text+=$(this).val()+', ';
+                });   
+                text=text.substring(0,text.length-2);
+                $('#selservices').val(text);
+            })
+        })*/
+        </script>
+       
+        <style>
+          #proofpath
+          {
+            display: none;
+          }
+          .heading
+{
+   
+    height: 80px;
+}
+.h1
+{
+    margin-top: 25px;
+}
+label{
+  font-weight: bold;
+}
+.card-img
+{
+  
+  background-image: url(pictures1/vendorbg.jpg);
+  width: inherit;
+  height: 110px;
+  background-size: contain;
+  
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+.full
+{
+  height: inherit;
+  width: 100%;
+  border: 2px solid gainsboro;
+  border-spacing: 5vmax;
+  padding: 5px 15px;
+  
+}
+        </style>
+       
+</head>
+<body onload="doloadData();" class="vendor">
+
+  
+   
+<center>
+       <div class="card bg-light text-black">
+  <img class="card-img" >
+  <div class="card-img-overlay">
+  <h1 style="color: rgb(192, 30, 30); font-family: sans-serif;">Vendor</h1>
+  
+</div>
+    </div>
+  </center>
+    <br><br>
+    <form  name="frm" method="post" enctype="multipart/form-data">
+      <input type="hidden" id="jasoos" name="jasoos">
+        <div class="container">
+          <div class="full">
+          
+            <div class="row">
+              <h2 style="color: green;">Personal Information</h2>
+              <div class="col-9 mt-4">
+              <div class=" input-group ">
+               <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; Email Address</label>
+                <input type="text" class="form-control" name="email" id="email" readonly placeholder="johndoe77@gmail.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              
+              </div>
+              </div>
+             
+              <div class="col-1 mt-4">
+             <!-- <input class="btn btn-outline-info" value="Search" type="button" id="btnSearch">-->
+              <span id="result"></span>
+            </div>
+</div>
+<div class="row mt-4">
+    <div class="col-4">
+      <label for="name"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Name</label>
+      <input type="text" class="form-control" name="name" id="name" placeholder="Name" aria-label=" name">
+    </div>
+    <div class="col-5 mt-4">
+      <div class="input-group flex-nowrap">
+       <label for="contact"> <i class="fa fa-phone-square" aria-hidden="true"></i>&nbsp; Contact &nbsp;</label>
+       
+         <span class="input-group-text" id="addon-wrapping">+91</span>
+      <input type="text" class="form-control" name="contact" id="contact" placeholder="XXXXXXXXXX" aria-label="number">
+    </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-4"><label for="frnname"> Firm Name (if yes)</label>
+     <input type="text" class="form-control" name="firm" id="firm" aria-label=" firmname">
+    </div>
+    <div class="col-3">
+     <label for="year"> <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; Started Working (year)</label>
+     <input type="text" class="form-control" name="estd" id="estd" placeholder="Year" aria-label="date">
+    </div>
+  </div>
+  <div class="row mt-4">
+    <h2 style="color: green;">Address Details</h2>
+    <div class="col-6 mt-4">
+     <label for="address"> <i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp;Firm Address</label>
+       <textarea rows="2" class="form-control" name="address" id="address" placeholder="1234 Main St." ></textarea>
+      </div>
+    <div class="col-3 mt-4">
+     <label for="text"> <i class="fa fa-home" aria-hidden="true"></i>&nbsp;City</label>
+    <input type="text" class="form-control" name="city" id="city" placeholder="City" aria-label="number">
+    </div>
+  </div>
+ 
+
+  <div class="row">
+    <div class="col-6">
+        <div class="row mt-4">
+            <div class="col-6 mt-4">
+            <label for="acardno"> <i class="fa fa-address-card-o" aria-hidden="true"></i>&nbsp; Aadhaar Card No.</label> 
+               <input type="text" class="form-control" name="acard" id="acard" placeholder="12 digit Aadhaar Card Number" aria-label=" aadhar">
+            </div>
+          </div>
+            <div class="col-10 mt-4">
+                <label for="slctser">Select Services:</label>
+     <select class="form-select" id="items"  onchange="doSelect();">
+      <option value="none">Select</option>
+  <option value="Flower and Ballon Decoration">Decoration</option>
+  <option value="DJ Services">DJ Services</option>
+  <option value="Light Decoration">Light Decoration</option>
+  <option value="Photography Services">Photography Services</option>
+  <option value="Food Catering">Food Catering</option>
+  <option value="Theme Parties">Theme Parties</option>
+  <option value="Gift Management">Gift Management</option>
+  <option value="Mehandi">Mehandi</option>
+  <option value="Banquet Facilities">Banquet Facilities</option>
+</select>
+            </div>
+            
+
+        
+    </div>
+    <div class="col-6">
+        <div class="row mt-5">
+            <div class="col-3 ">
+              <label for="proofpath" class="align-self-start"><i class="fa fa-camera"></i>&nbsp;Upload Image</label>
+                <img src="pictures1/profile.png" class="rounded float-end" width="100px" height="80px" id="preview">
+              <br>
+                <input type="file" name="proofpath" id="proofpath" onchange="loadFile(this);">
+               
+    
+                <br><br>
+               
+            </div>
+          
+        </div>
+
+    </div>
+</div>
+
+
+<div class="col-5 mt-4"><label for="slctd">You Choose</label>
+    <textarea rows="2" class="form-control" name="selservices" id="selservices"></textarea>
+
+</div>
+
+<div class="row mt-3">
+    <div class="col-8"><label for="info">Job Description </label>
+       <textarea rows="2" class="form-control" name="otherinfo" placeholder="Any other skills/work experience/work" id="otherinfo"></textarea>
+      </div>
+      </div>
+    
+      <br><br><br>
+      <div class="container  offset-md-5">
+        <input type="Submit" value="Submit"  id="btnsubmit"  class="btn btn-outline-success btn-lg" formaction="/vendor-save">
+<input type="Submit" value="Update" id="btnupdate"  class="btn btn-outline-danger btn-lg" formaction="/vendor-update">
+</div>
+</div>
+</form>
+</div>
+<br><br><br><br><br><br>
+    
+</body>
+</html>

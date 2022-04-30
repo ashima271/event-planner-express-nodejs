@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Event Planners</title>
+    
+    <link rel="shortcut icon" type="image" href="pictures1/calender.jfif">
+       
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="css/style1.css">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      
+      function loadFile(ref){
+          var image=document.getElementById("preview");
+          image.src=URL.createObjectURL(ref.files[0]);
+        }
+        
+        
+        $(document).ready(
+            function()
+            {
+                $("#btnlogin").click(function(){
+                    var email=$("#emaill").val(); 
+                    var pwd=$("#pwdd").val();
+                   
+                    
+                   // var url="/chk-user-in-table-signup?thisuser="+email;
+                     var url="/chk-user-in-table-signup?thisuser="+email+"&thispwd="+pwd;
+                   
+                   
+                    //alert(url);
+                    $.get(url,function(kuchBhiJsonAry)
+                    {
+                      //alert(kuchBhiJsonAry);   
+                        if(kuchBhiJsonAry.length==0){
+                          $("#result").html("Create New Account");
+                        }
+                           
+                        
+                            else
+                            {
+                            
+                              // alert(JSON.stringify(kuchBhiJsonAry));
+                              localStorage.setItem("user",email);
+                               $("#jasoos").val(kuchBhiJsonAry[0].type);
+                              var chck=$("#jasoos").val();
+                             // alert(chck);
+                              if (chck=="Vendor")
+                              {
+                             // alert("if");
+                              window.location.href = "http://localhost:8006/dashvendor";
+                              }
+                              else
+                              {
+                             // alert("else");
+                              window.location.href = "http://localhost:8006/dashclient";
+
+                              }
+                            }
+                            
+                              
+                    })
+
+                });
+                //------------------------------------------------------------
+         $("#email").keyup(function(){                           //email validation
+         
+         var r = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+         var email=$("#email").val();
+         if(r.test(email)==false)
+         {
+      
+           $("#errEmail").css({"color":'red'});
+           $("#errEmail").html("Invalid");
+         }
+         else
+         $("#errEmail").html("");
+            })
+           // ---------------------------------------------------------------
+
+            $("#pwd").keyup(function(){                            //pwd validation
+          var r=/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/;
+          var pwd=$("#pwd").val();
+          if(r.test(pwd)==false){
+           
+            $("#errPass").css({"color":'red'});
+            $("#errPass").html("Password must contain atleast 8 characters,including UPPER CASE,lower case,special symbol and a digit!");
+          }
+          else
+          $("#errPass").html("");
+        })
+        //*********************************************************************
+       $(".eye").mousedown(function(){          //show pass on click of eye
+         $("#pwd").prop("type","text");
+         $("#pwdd").prop("type","text");
+         $(this).removeClass("fa-eye");
+         $(this).addClass("fa-eye-slash");
+
+       })
+       $(".eye").mouseup(function(){
+        $("#pwd").prop("type","password");
+        $("#pwdd").prop("type","password");
+        $(this).removeClass("fa-eye-slash");
+        $(this).addClass("fa-eye");
+    })
+          })
+
+
+
+    </script>
+    
+    
+   
+</head>
+<body class="index">
+  <form  name="frm" method="post" enctype="multipart/form-data">
+    <input type="hidden" id="jasoos" name="jasoos">
+<nav class="navbar navbar-light bg-light navbar-expand-sm py-0 fixed-top">
+  <div class="container-fluid">
+    <span class="navbar-brand"><nav style="--bs-breadcrumb-divider: '';" aria-label="breadcrumb">
+     
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"> <a class="navbar-brand" href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i>
+         <i>&nbsp; ashimajindal169@gmail.com &nbsp; |</i>
+        </a></li>
+        <li class="breadcrumb-item active" aria-current="page"> <a class="navbar-brand" href="#">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+         <i>&nbsp; 8360689975</i>
+        </a></li>
+      </ol>
+    </nav></span>
+    <ul class="nav">
+      <li class="nav-item" data-bs-toggle="modal" data-bs-target="#modalSignup"><a class="nav-link active" aria-current="page" href="#" ><b> SignUp</b></a>
+        
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          
+          <li class="nav-item" data-bs-toggle="modal" data-bs-target="#modalLogin"><a class="nav-link active" aria-current="page" href="#"><b> Log In</b></a>
+      </li>
+  </div>
+</nav>
+<div class="card bg-dark text-black">
+  <img  class="card-img" alt="..." >
+  <div class="card-img-overlay">
+    <h5 class="card-title"><nav class="navbar navbar-expand-lg py-md-3 navbar-dark setht ">
+      
+      <div class="container-fluid" >
+          <a class="navbar-brand" href="#" style="font-weight: 100px; font-size: xx-large;">
+              <img src="pictures1/calender.jfif"  width="50" height="50" class="d-inline-block align-text-top">
+             <b><i>&nbsp; Event Planner</i></b>  <hr>
+            </a>
+           
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <center>
+        <div class="collapse navbar-collapse mt-4" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="aboutus.html">About Us</a>
+            </li>
+            
+           <li class="nav-item">
+            <ul class="menu nav-link active">
+              <li>
+                <a href="index.html" >Services<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              
+             
+              
+                
+             <div class="row">
+            
+        <div class="col">
+          <ul class="hdr-vendor-half ">
+               
+            <li><a href="#" class="vndr-drpdwn-cat"><i class="fa fa-camera" aria-hidden="true"></i> &nbsp; Photographers</a></li>
+           
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-pagelines" aria-hidden="true"></i>&nbsp; Decorators </a></li>
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-venus" aria-hidden="true"></i>&nbsp;Venues </a></li>
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-qq" aria-hidden="true"></i> &nbsp;Choreographers </a></li>
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-gg" aria-hidden="true"></i> &nbsp;Designers </a></li>
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-glass" aria-hidden="true"></i> &nbsp;Bar Services</a></li>
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-cutlery" aria-hidden="true"></i> &nbsp;Catering</a></li>
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-hand-paper-o" aria-hidden="true"></i>&nbsp; Mehandi Artists</a></li>
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-paint-brush" aria-hidden="true"></i> &nbsp;Makeup Artists</a></li>
+            
+            <li><a href="#" class="vndr-drpdwn-cat p-3"><i class="fa fa-video-camera" aria-hidden="true"></i>&nbsp;Videographers</a></li>
+          </ul>
+        </div>
+       
+          
+          </div>
+         
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="info.html">FAQ's</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="info.html">Contact Us</a>
+         
+        </li>
+             
+            </li>
+            
+           
+            <br>
+          <hr>
+        
+         
+       
+        
+        <hr>
+      </center>
+      
+    </nav></h5>
+    <br><br><br>
+        <center> <p class="card-text-light"><H1> <i> <u> EVENT & FUNCTION ORGANIZER</H1></p></center></i></u>
+        
+        <center><p style="color:rgba(248, 0, 145, 0.781);"><b><i>Because in your dreams, every detail matters :)</p><i></b>
+         
+        </center>
+      </div>
+      </div>
+    </div>
+  </div>
+         
+    <p class="card-text"></p>
+  </div>
+</div>
+<br><br><br>
+<h3><span>Our Services</h3></span>
+   
+
+<br><br><br>
+<div class="container" >
+  <div class="sqr-row">
+    <div class="sqr-box">
+      <div class="sqr-emoji">🥘 </div>
+      <p class="normal-16 charcol">Caterers</p>
+    </div>
+      <div class="sqr-box">
+        <div class="sqr-emoji">🎉</div>
+        <p class="normal-16 charcol">Decorator</p>
+      </div>
+          <div class="sqr-box">
+            <div class="sqr-emoji">🗓️</div>
+            <p class="normal-16 charcol">Event Planner</p>
+          </div>
+              <div class="sqr-box">
+                <div class="sqr-emoji">📝</div>
+                <p class="normal-16 charcol">Wedding cards</p>
+              </div>
+                  <div class="sqr-box">
+                    <div class="sqr-emoji">💄</div>
+                    <p class="normal-16 charcol">Make-up & Hair</p>
+                  </div>
+                      <div class="sqr-box">
+                        <div class="sqr-emoji">🤚</div>
+                        <p class="normal-16 charcol">Mehandi</p>
+                      </div>
+                          <div class="sqr-box">
+                            <div class="sqr-emoji">🎂</div>
+                            <p class="normal-16 charcol">Cakes</p>
+                            </div>
+                              <div class="sqr-box">
+                                <div class="sqr-emoji">🎙️</div>
+                                <p class="normal-16 charcol">DJ Service</p>
+                              </div>
+                                  <div class="sqr-box">
+                                    <div class="sqr-emoji">🥂</div>
+                                    <p class="normal-16 charcol">Entertainment</p>
+                                    </div>
+                                      <div class="sqr-box">
+                                        <div class="sqr-emoji">📷</div>
+                                        <p class="normal-16 charcol">Photographers</p>
+                                      </div>
+    </div>
+</div>
+                                          
+                                                    
+                                        
+        
+
+     
+    
+   <br><br><br><br>
+   <h3><span>Events Overview</h3></span>
+   <br><br>
+    <div class="container" style="height: 400px;">
+      <div class="row offset-md-1" >
+        <div class="col-md-4">
+   <div class="card" style="width: 18rem;">
+    <img src="pictures1/wedding.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Wedding</h5>
+      <p class="card-text">Sit back while we create the experience of a lifetime</p>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card" style="width: 18rem;">
+   <img src="pictures1/tble.jpg" class="card-img-top" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">Food</h5>
+     <p class="card-text">Making Remarkable moments on your Occasion </p>
+   </div>
+ </div>
+</div>
+<div class="col-md-4">
+  <div class="card" style="width: 18rem;">
+   <img src="pictures1/bday.jpg" class="card-img-top" alt="...">
+   <div class="card-body">
+     <h5 class="card-title">Birthday Cakes</h5>
+     <p class="card-text">Life is all about celebrating every little happiness.</p>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+    
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="container">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="pictures1/hd1.jpg" class="d-block " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3><br> Make Your Best Choices here only!!</h3>
+              </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="pictures1/hd2.jpg" class="d-block " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>select us to change Your World..</h3>
+             </div>
+          </div>
+          
+          <div class="carousel-item ">
+            <img src="pictures1/hd3.jpg" class="d-block " alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Lets Make Our Life Unforgetable</h3>
+              </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    </center>
+    <br><br><br>
+      <footer class="footer widget-footer bg-img11 ttm-bgcolor-black ttm-bg ttm-bgimage-yes clearfix">
+        <div class="ttm-row-wrapper-bg-layer ttm-bg-layer mt-2"></div>
+        <div class="second-footer">
+            <div class="container">
+                <div class="second-footer-inner">
+                    <div class="row">
+                        
+                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="widget widget_nav_menu clearfix">
+                             
+                                <h4 class="widget-title evnt mt-4">Event Planning </h4>
+                                <p class="element">
+                                  It is the event marketing platform built for new generation. We help in teams work on events, everywhere and every way their customers gather.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="widget widget-out-link clearfix">
+                                <h4 class="widget-title mt-4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Contact Us</h4>
+                                <ul class="widget-contact">
+                                    <li><i class="fa fa-map-marker"></i> &nbsp; #143 North Estate, Near Kamla Nehru Colony, Bathinda, Punjab 151001</li>
+                                    <hr>
+
+                                    <li><i class="fa fa-phone"></i>&nbsp; 8360689975</li>
+                                    <hr>
+                                    
+                                    <li><i class="fa fa-envelope-o"></i><a href="https://www.gmail.com">&nbsp; ashimajindal169@gmail.com </a></li>
+
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="widget widget-out-link clearfix ">
+                                <h4 class="widget-title mt-4">Location</h4>
+                              
+                               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.465812992455!2d74.95125171496264!3d30.223790331817412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391732b85d468a01%3A0xbb839fee0a778659!2sNorth%20Estate%2C%20Kamla%20Nehru%20Colony%2C%20Bathinda%2C%20Punjab%20151001!5e0!3m2!1sen!2sin!4v1629795335447!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" aria-hidden="false" tabindex="0"></iframe>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>            <div class="bottom-footer-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12 ttm-footer2-left">
+                       
+                    </div>
+                    <div class="col-sm-12 col-xs-12 col-md-4 ttm-footer2-right">
+                        <div class="ttm-social-link-wrapper decoration:none">
+                            <ul class="social-icons">
+                                <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href=" https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                              
+                            </ul>
+                            <p> © 2021 Copyright EventPlanning | All Rights Reserved</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <hr>
+    <footer class="page-footer font-small blue pt-1">
+    <div class="footer-copyright text-center py-1">
+     </div>
+  </footer>
+        </div>            
+    </footer>
+    </div>
+    
+  
+
+<!--------------------------------------------USER SIGN UP------------------------------------------>
+<div class="modal fade" id="modalSignup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="form-floating mb-3">
+            <div class="col-auto">
+              <div id="logo"></div>
+             
+              <span id="errEmail"></span>
+              <div class="input-group">
+               
+                <div class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i> </div>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email address">
+              </div>
+              </div>
+            </div>
+            <div class="form-floating">
+              <div class="col-auto">
+                
+                <span id="errPass"></span>
+                <div class="input-group">
+                  
+                  <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+              <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+              <span class="input-group-text" id="basic-addon2"><i class="fa fa-eye eye" aria-hidden="true"></i></span>
+             </div>
+            </div>
+            </div>
+            <br>
+            <div class="form-floating">
+              <select class="form-select form-select-md" id="type" name="type" aria-label="Default select example">
+                <option selected>Choose Option</option>
+                <option value="Client">Client</option>
+                <option value="Vendor">Vendor</option>
+
+              </select>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+        <input type="Submit" value="Sign Up" class="btn btn-outline-success"  formaction="/index-signup">
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+<!--------------------------------------------USER LOG IN------------------------------------------>
+   <div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">User Log In</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="form-floating mb-3">
+              <div class="col-auto">
+                <div id="logo"></div>
+                <label class="visually-hidden" for="autoSizingInputGroup">Email</label>
+                <div class="input-group">
+                  <div class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                  <input type="email" class="form-control" id="emaill" name="emaill" placeholder="Email Address">
+                </div>
+              </div>
+              
+               
+               
+              </div>
+              <div class="form-floating">
+                <div class="col-auto">
+                  <label class="visually-hidden" for="autoSizingInputGroup">Password</label>
+                  <div class="input-group">
+                    <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
+                <input type="password" class="form-control" id="pwdd" name="pwdd" placeholder="Password" >
+                <span class="input-group-text" id="basic-addon2"><i class="fa fa-eye eye" aria-hidden="true"></i></span>
+               
+              </div>
+              <br><br>
+              
+              <div class="form-floating">
+                <center> <h6>Or Sign up with</h6> 
+                  <a href="https://www.google.com/"> <img src="pictures1/google.png" height="20px" width="20px" alt=""></a>
+                  <a href="https://www.facebook.com"><img src="pictures1/fb.png" height="15px" width="15px" alt=""></a>
+                 
+                  
+                
+               
+               </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark">Close</button>
+         
+          <input type="button" value="Log In" id="btnlogin" class="btn btn-outline-danger" formaction="/index-login">
+          <span id="result"></span>
+        </div>
+      </center>
+      </div>
+                         
+      </div>
+    </div>
+  </div>
+  
+</form>
+
+</body>
+</html>

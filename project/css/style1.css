@@ -1,0 +1,280 @@
+.heading
+{
+    background-color: bisque;
+    height: 80px;
+}
+.h1
+{
+    margin-top: 25px;
+}
+/*body{
+    background-color: #25274d;
+}*/
+.contact{
+    padding: 4%;
+    height: 400px;
+}
+.col-md-3{
+    background: tomato;
+    padding: 4%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+.contact-form button{
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+.contact-form button:focus{
+    box-shadow:none;
+}
+.carousel .carousel-item {
+    max-height:600px;
+}
+
+.carousel-item img {
+   
+    max-height:1000px;
+}
+.card-img
+{
+  
+  background-image: url(/pictures1/hd.jpg);
+  width: auto;
+  height: 700px;
+  background-size: contain;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+h3 {
+   width: 100%; 
+   text-align: center; 
+   border-bottom: 1px solid rgb(194, 191, 191); 
+   line-height: 0.1em;
+   margin: 10px 0 20px; 
+} 
+
+h3 span { 
+    background:#fff; 
+    padding:0 10px; 
+}
+body{
+  background-color:rgb(255, 249, 249);
+}
+.sqr-row {
+    display: inline-flex;
+    flex-wrap:wrap;
+   width: inherit;
+    margin: auto;
+        }
+        .sqr-box {
+    display: block;
+    width: 10%;
+    padding: 32px 30px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    margin: 8px;
+    border-radius: 4px;
+    width: 230px;
+    
+        }
+     
+        .sqr-emoji {
+    font-size: 40px;
+    padding-bottom: 16px;
+    margin-left: 50px;
+   
+}
+.sqr-box {
+    pointer-events: none;
+}
+.sqr-box:hover{
+  background: rgb(139, 112, 112);
+  cursor: pointer;
+}
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+.normal-16{
+  text-align: center;
+}
+.setht
+{
+  height: 200px;
+}
+
+.navbar .nav-item .nav-link {
+    color: #000000;
+    font-size: 1.1em;
+    position: relative;
+  }
+  .navbar .nav-item .nav-link:hover {
+    color: #000000;
+  }
+  .navbar .nav-item .nav-link::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #000000;
+    color: transparent;
+    width: 0%;
+    content: '.';
+    height: 3px;
+  }
+  .navbar .nav-item .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .nvbrheight
+  {
+      margin-top: 5px;
+      height: 50px;
+  }
+  .stheightsecond
+  {
+      margin-top: 15px;
+    height: 60px;
+  }
+  .sec1
+  {
+      height: 60px;
+  }
+  #logo {
+    background-image: url(../pictures1/signup.png);
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+   margin-left: 38%;
+   margin-bottom: 5px;
+  }
+
+  .ttm-bgcolor-black, .ttm-bgcolor-black > .ttm-bg-layer {
+    background-color: rgb(167, 167, 167);
+    
+}
+/*Footer*/
+.ttm-footer2-right {
+    text-align: right;
+}
+.ttm-footer2-left, .ttm-footer2-right {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    font-size: 14px;
+}
+ul.social-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 25px;
+    padding-top: 0;
+    padding-bottom: 5px;
+   
+}
+    li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a{
+text-decoration: none;
+color: black;
+}
+
+.widget-footer
+{
+  height: 445x;
+}
+.fa{
+  color: rgb(92, 2, 92);
+}
+.element {
+  text-align: justify;
+  font-size: x-large;
+  font-weight: 500;
+  margin-top: 35px;
+}
+
+.evnt {
+
+  font-family: cursive;
+  color: crimson;
+  font-style: oblique;
+  font-size: xx-large;
+  font-size: xxx-large;
+  margin-top: 20px;
+  margin-block-start: 200px;
+  font-weight: 300;
+}
+
+ /* servives*/
+.menu {
+    display: inline-flex;
+    margin: 0 auto;
+    position: relative;
+    width: 150px;
+  }
+  
+  .menu > li > a {
+    
+    color: #fff;
+    display: inline-block;
+    padding: 2px 8px;
+   
+    text-decoration: none;
+  }
+  
+  .menu ul {
+    background: rgb(255, 250, 250);
+    height: 0;
+    left:-100px;
+    opacity: 0;
+    position: absolute;
+    transition: all .5s ease;
+    top: 45px;
+    width: 400px;
+  }
+  
+  .menu li:hover ul {
+    height: 375px;
+    opacity: 5;
+    transform: translateY(0);
+  }
+  
+  .menu ul a {
+    color: #000;
+    display: block;
+    padding: 5px 5px;
+  }
+  .vndr-drpdwn-cat
+  {
+    margin-top: 3px;
+    margin-bottom: 1px;
+   
+    text-align: inherit;
+    margin-left: -40px;
+  }
+  
+  
+  
