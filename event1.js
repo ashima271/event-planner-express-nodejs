@@ -48,7 +48,7 @@ var nodemailer = require('nodemailer');
 
 var app = express(); //Calls the express function "express()" and puts new Express application inside the app variable
 app.use(express.static("project"));//tells server to pick .css and .js files from public folder
-app.listen(8006,function(){
+app.listen(process.env.PORT || 8006 ,function(){
     console.log("------------------Server Started-----------")
 })
 
