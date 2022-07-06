@@ -61,10 +61,10 @@ app.use(fileup());
 app.use(express.urlencoded({extended:true}));
 
 var dbConfig={ // connecting to my sql
-    host:"localhost",
+    host:"fdb33.awardspace.net",
     user:"root",
     password:"",
-    database:"users"
+    database:"4004037_abc"
 }
 var dbcon=mysql.createConnection(dbConfig); //gives mysql info through which we r connecting
 dbcon.connect(function(err){ // connected to my sql
@@ -413,4 +413,6 @@ app.post("/profile-update", (req, resp) => {
   */
         })
       })
-  
+     
+      
+      

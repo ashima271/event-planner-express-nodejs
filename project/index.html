@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
  <link rel="stylesheet" href="css/style1.css">
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     
     <script src="js/jquery-1.8.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    
     <script>
       
       function loadFile(ref){
@@ -147,6 +149,7 @@
       </li>
   </div>
 </nav>
+<header class="header">
 <div class="card bg-dark text-black">
   <img  class="card-img" alt="..." >
   <div class="card-img-overlay">
@@ -157,7 +160,12 @@
               <img src="pictures1/calender.jfif"  width="50" height="50" class="d-inline-block align-text-top">
              <b><i>&nbsp; Event Planner</i></b>  <hr>
             </a>
-           
+            
+
+             
+          
+         
+     
       
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -241,11 +249,13 @@
   </div>
 </div>
 <br><br><br>
-<h3><span>Our Services</h3></span>
+<section class="service" id="service">
+
+  <h3 class="heading"> <span>our services</span> </h3>
    
 
-<br><br><br>
-<div class="container" >
+<br>
+<div class="box-container">
   <div class="sqr-row">
     <div class="sqr-box">
       <div class="sqr-emoji">🥘 </div>
@@ -289,90 +299,133 @@
                                       </div>
     </div>
 </div>
+</section>
                                           
                                                     
                                         
         
 
-     
+<section class="home" id="home">
     
-   <br><br><br><br>
-   <h3><span>Events Overview</h3></span>
-   <br><br>
-    <div class="container" style="height: 400px;">
-      <div class="row offset-md-1" >
-        <div class="col-md-4">
-   <div class="card" style="width: 18rem;">
-    <img src="pictures1/wedding.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Wedding</h5>
-      <p class="card-text">Sit back while we create the experience of a lifetime</p>
-    </div>
+   
+<div class="content">
+
+    <h3 class="heading">its time to celebrate! the best <span> event organizers </span></h3>
+   
   </div>
-</div>
-<div class="col-md-4">
-  <div class="card" style="width: 18rem;">
-   <img src="pictures1/tble.jpg" class="card-img-top" alt="...">
-   <div class="card-body">
-     <h5 class="card-title">Food</h5>
-     <p class="card-text">Making Remarkable moments on your Occasion </p>
-   </div>
- </div>
-</div>
-<div class="col-md-4">
-  <div class="card" style="width: 18rem;">
-   <img src="pictures1/bday.jpg" class="card-img-top" alt="...">
-   <div class="card-body">
-     <h5 class="card-title">Birthday Cakes</h5>
-     <p class="card-text">Life is all about celebrating every little happiness.</p>
-   </div>
- </div>
-</div>
-</div>
-</div>
     
-      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-        <div class="container">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-interval="10000">
-            <img src="pictures1/hd1.jpg" class="d-block " alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h3><br> Make Your Best Choices here only!!</h3>
-              </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="pictures1/hd2.jpg" class="d-block " alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>select us to change Your World..</h3>
-             </div>
-          </div>
-          
-          <div class="carousel-item ">
-            <img src="pictures1/hd3.jpg" class="d-block " alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Lets Make Our Life Unforgetable</h3>
-              </div>
-          </div>
-        </div>
-        </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+  <div class="swiper-container home-slider">
+      <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="pictures1/slide-1.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="pictures1/slide-2.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="pictures1/slide-3.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="pictures1/slide-4.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="pictures1/slide-5.jpg" alt=""></div>
+          <div class="swiper-slide"><img src="pictures1/slide-6.jpg" alt=""></div>
       </div>
-    </div>
+  </div>
+
+</section>
+    
+<section class="gallery" id="gallery">
+
+  <h1 class="heading">our <span>gallery</span></h1>
+
+  <div class="box-container">
+
+      <div class="box">
+          <img src="pictures1/g-1.jpg" alt="">
+          
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-2.jpg" alt="">
+         
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-3.jpg" alt="">
+         
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-4.jpg" alt="">
+         
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-5.jpg" alt="">
+          
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-6.jpg" alt="">
+         
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-7.jpg" alt="">
+          
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-8.jpg" alt="">
+         
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="pictures1/g-9.jpg" alt="">
+          
+          <div class="icons">
+              <a href="#" class="fa fa-heart-o"></a>
+              <a href="#" class="fa fa-share"></a>
+              <a href="#" class="fa fa-eye"></a>
+          </div>
+      </div>
+
+  </div>
+
+</section>
     </center>
     <br><br><br>
       <footer class="footer widget-footer bg-img11 ttm-bgcolor-black ttm-bg ttm-bgimage-yes clearfix">
@@ -560,6 +613,28 @@
   </div>
   
 </form>
+<script type="module">
+  import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
 
+  const swiper = new Swiper(".home-slider", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2,
+          slideShadows: true,
+        },
+        loop:true,
+        autoplay:{
+          delay: 3000,
+          disableOnInteraction:false,
+        }
+      });
+      
+</script>
 </body>
 </html>

@@ -1,15 +1,58 @@
-.heading
-{
-    background-color: bisque;
-    height: 80px;
+*{
+  font-family: 'Nunito', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  
+  text-decoration: none;
 }
+html{
+overflow-x: hidden;
+scroll-padding: 7rem;
+scroll-behavior: smooth;
+}
+html::-webkit-scrollbar{
+  width: 1rem;
+}
+@media(max-width:991px){
+  html{
+    font-sixe: 55%
+  }
+}
+html::-webkit-scrollbar-track{
+  background: rgb(196, 76, 76);
+}
+
+html::-webkit-scrollbar-thumb{
+  background: var(--main-color);
+  border-radius: 5rem;
+}
+section{
+  padding:2rem 9%;
+  text-transform: capitalize;
+}
+
+.heading{
+  text-align: center;
+  padding-bottom: 2rem;
+  color:rgb(0, 0, 0);
+  background-color:rgb(255, 249, 249);
+  height: 10px;
+  
+  font-size: 2rem;
+}
+
+.heading span{
+  color:var(--main-color);
+  
+}
+
 .h1
 {
     margin-top: 25px;
 }
-/*body{
-    background-color: #25274d;
-}*/
+
 .contact{
     padding: 4%;
     height: 400px;
@@ -47,14 +90,7 @@
 .contact-form button:focus{
     box-shadow:none;
 }
-.carousel .carousel-item {
-    max-height:600px;
-}
 
-.carousel-item img {
-   
-    max-height:1000px;
-}
 .card-img
 {
   
@@ -65,28 +101,20 @@
   filter: blur(8px);
   -webkit-filter: blur(8px);
 }
-h3 {
-   width: 100%; 
-   text-align: center; 
-   border-bottom: 1px solid rgb(194, 191, 191); 
-   line-height: 0.1em;
-   margin: 10px 0 20px; 
-} 
 
-h3 span { 
-    background:#fff; 
-    padding:0 10px; 
-}
 body{
   background-color:rgb(255, 249, 249);
 }
+
 .sqr-row {
     display: inline-flex;
     flex-wrap:wrap;
    width: inherit;
     margin: auto;
-        }
-        .sqr-box {
+  }
+ 
+
+  .sqr-box {
     display: block;
     width: 10%;
     padding: 32px 30px;
@@ -95,18 +123,124 @@ body{
     margin: 8px;
     border-radius: 4px;
     width: 230px;
+    pointer-events: none;
     
         }
      
-        .sqr-emoji {
+  .sqr-emoji {
     font-size: 40px;
     padding-bottom: 16px;
     margin-left: 50px;
    
 }
-.sqr-box {
-    pointer-events: none;
+.service .box-container .sqr-box{
+  border-radius: .3rem;
+  background:rgb(180, 166, 166);
+  
+  padding:2.5rem;
 }
+.service .box-container .sqr-box:hover{
+background-color: azure;
+}
+.gallery .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap:1.5rem;
+}
+
+.gallery .box-container .box{
+  position: relative;
+  border:1rem solid #333;
+  border-radius: .5rem;
+  height: 17rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.gallery .box-container .box img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.gallery .box-container .box:hover img{
+  transform: scale(1.1);
+  filter: grayscale();
+}
+
+.gallery .box-container .box .title{
+  position:absolute;
+  top:-10rem; left:0; right: 0;
+  background:#333;
+  color:#fff;
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.gallery .box-container .box:hover .title{
+  top:0;
+}
+
+.gallery .box-container .box .icons{
+  position: absolute;
+  bottom:-10rem; left:0; right: 0;
+  background:#333;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.gallery .box-container .box:hover .icons{
+  bottom: 0;
+}
+
+.gallery .box-container .box .icons a{
+  font-size: 1rem;
+  margin:.3rem 1rem;
+  color:#fff;
+}
+
+.gallery .box-container .box .icons a:hover{
+  color:var(--main-color);
+}
+.home .content{
+  text-align: center;
+ 
+  margin:2rem auto;
+  max-width: 70rem;
+  padding-bottom: 5rem;
+}
+
+.home .content h3{
+  color:rgb(33, 31, 31);
+  font-size: 3.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  text-transform: uppercase;
+  
+}
+
+.home .content h3 span{
+  color:blue;
+  text-transform: uppercase;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.home .home-slider .swiper-slide{
+  overflow: hidden;
+  border-radius: .5rem;
+  height: 32rem;
+  width:25rem;
+}
+
+.home .home-slider .swiper-slide img{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
+
+
+
 .sqr-box:hover{
   background: rgb(139, 112, 112);
   cursor: pointer;
