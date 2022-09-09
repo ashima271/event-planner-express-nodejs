@@ -2,11 +2,9 @@ var express = require("express"); // Requires the Express module just as you req
 var mysql = require("mysql");//using the mysql module. 
 var path = require("path"); //Extract the filename from a file path:
 var nodemailer = require('nodemailer');
-
-
  //***********************************************************/
  
-   /* var transporter = nodemailer.createTransport({
+     var transporter = nodemailer.createTransport({
        
       service: 'gmail',
       auth: {
@@ -18,12 +16,11 @@ var nodemailer = require('nodemailer');
     var mailOptions = {
       from: 'ashimajindal169@gmail.com',
       to: 'ashimajindal169@gmail.com',
-     // to:req.body.email,
-     
+     /* to:req.body.email,*/
       subject: 'Welcome to function orgnaziation',
       /*text: req.body.email & req.body.password*/
 
-      /*text: `Dear User
+      text: `Dear User
 
       Thank you for completing your registration with Event Planners. 
       
@@ -42,13 +39,12 @@ var nodemailer = require('nodemailer');
         
       }
     });
-    */
   
  
 
 var app = express(); //Calls the express function "express()" and puts new Express application inside the app variable
 app.use(express.static("project"));//tells server to pick .css and .js files from public folder
-app.listen(process.env.PORT || 8006 ,function(){
+app.listen(8006,function(){
     console.log("------------------Server Started-----------")
 })
 
@@ -61,10 +57,10 @@ app.use(fileup());
 app.use(express.urlencoded({extended:true}));
 
 var dbConfig={ // connecting to my sql
-    host:"fdb33.awardspace.net",
+    host:"localhost",
     user:"root",
     password:"",
-    database:"4004037_abc"
+    database:"users"
 }
 var dbcon=mysql.createConnection(dbConfig); //gives mysql info through which we r connecting
 dbcon.connect(function(err){ // connected to my sql
@@ -395,24 +391,13 @@ app.post("/profile-update", (req, resp) => {
     })
     
     app.post("/changepwd", (req, resp) => {
-      //if (req.body.pwd == req.body.newpwd) {
-         dbcon.query("update signup set pwd=? where email=?", [req.body.pwd, req.body.email], function (err) {
-           if (err)
-                resp.send(err.message)
+      if (req.body.oldpwd !== "") {
+          dbcon.query("update signup set pwd=? where email=?", [req.body.newpwd, req.body.email], function (err) {
+              if (err)
+                  resp.send(err.message)
               else
                   resp.send("Record Updated")
-              /*var data=[ req.body.pwd,req.body.email];
-  dbcon.query("update signup set pwd=? where email=? ",data,function(err){
-       if(err)
-       resp.send(err);
-       else
-       resp.send("Your Data is Successfully Updated!.");
+          })
+      }
+  
   })
-         }
-        )
-  */
-        })
-      })
-     
-      
-      

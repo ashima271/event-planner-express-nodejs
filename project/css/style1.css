@@ -1,3 +1,4 @@
+@media (min-width: 768px) and (max-width: 991.98px);
 *{
   font-family: 'Nunito', sans-serif;
   margin: 0; padding: 0;
@@ -20,9 +21,7 @@ html::-webkit-scrollbar{
     font-sixe: 55%
   }
 }
-html::-webkit-scrollbar-track{
-  background: rgb(196, 76, 76);
-}
+
 
 html::-webkit-scrollbar-thumb{
   background: var(--main-color);
@@ -107,17 +106,21 @@ body{
 }
 
 .sqr-row {
-    display: inline-flex;
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap:1.5rem;
     flex-wrap:wrap;
-   width: inherit;
+    width: 100%;
     margin: auto;
+    align-items: center;
+    
   }
  
 
-  .sqr-box {
-    display: block;
-    width: 10%;
-    padding: 32px 30px;
+  /*.sqr-box {
+    
+   
     background: #fff;
     border: 1px solid #ebebeb;
     margin: 8px;
@@ -125,7 +128,7 @@ body{
     width: 230px;
     pointer-events: none;
     
-        }
+        }*/
      
   .sqr-emoji {
     font-size: 40px;
@@ -134,6 +137,9 @@ body{
    
 }
 .service .box-container .sqr-box{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap:1.5rem;
   border-radius: .3rem;
   background:rgb(180, 166, 166);
   
@@ -141,6 +147,12 @@ body{
 }
 .service .box-container .sqr-box:hover{
 background-color: azure;
+position: relative;
+border:1rem solid #333;
+border-radius: .5rem;
+height: 14rem;
+cursor: pointer;
+overflow: hidden;
 }
 .gallery .box-container{
   display: grid;
